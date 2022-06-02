@@ -1,0 +1,14 @@
+.posts-by-category,.posts-by-search{
+    .post{
+        @apply shadow-none border-solid border-b border-gray02;
+    }
+    .thumbnail{
+        @apply w-full h-[350px];
+        img{
+            @apply rounded-2xl;
+        }
+    }
+    .description {
+        @apply px-0;
+    }
+}

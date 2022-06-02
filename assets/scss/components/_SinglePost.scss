@@ -1,0 +1,29 @@
+.single-post{
+    .content{
+            @apply text-gray01;
+        figure{
+            img{
+                @apply w-full rounded-2xl;
+            }
+        }
+        p{
+            @apply mb-4;
+        }
+        ul,ol{
+            @apply list-disc pl-8;
+            li{
+                @apply  mb-4;
+            }
+        }
+        h2,h3,h4,h5{
+            @apply py-6 text-black01;
+        }
+    }
+    .content-footer{
+        a{
+            &:hover{
+                @apply text-cornflowerBlue transition-colors duration-300;
+            }
+        }
+    }
+}

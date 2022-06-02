@@ -1,0 +1,45 @@
+.about-us{
+    .about-content{
+        h2{
+            @apply w-full px-6 border-l-4 border-solid border-pink mb-8;
+        }
+        p{
+            @apply text-gray01;
+        }
+    }
+}
+.who-we-are{
+    .description{
+        h2{
+            @apply hidden;
+    }
+}
+}
+.contact-us{
+    iframe{
+        @apply max-w-full w-full;
+    }
+    .everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid{
+        @apply px-0;
+    }
+    input,textarea{
+        @apply max-w-none w-full bg-gray04 rounded-lg sm:rounded-[2rem] text-black02 ;
+        @apply #{border-none px-6 py-2 !important };
+    }
+    .evf-submit-container{
+        @apply px-0;
+    }
+    .evf-field{
+        @apply sm:#{mb-0 !important};
+    }
+    #evf-submit-94{
+        @apply w-full rounded border sm:rounded-[2rem] sm:w-auto ;
+    }
+    .evf-frontend-grid{
+        @apply sm:grid sm:grid-cols-2 gap-4;
+    }
+    .evf-field-textarea{
+        @apply col-span-2 ;
+        @apply #{mb-2  !important}
+    }
+}

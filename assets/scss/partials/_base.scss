@@ -4,11 +4,19 @@
 // Foundation
 // =≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠
 html {
-  @apply antialiased;
-  font-size: 15px;
+  @apply antialiased text-[15px] sm:text-[16px] ;
   text-rendering: optimizeLegibility;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background-color: white;
 
-  @screen md {
-    font-size: 18px;
-  }
+}
+h1{
+  @apply text-3xl font-semibold;
+}
+h2{
+  @apply text-2xl font-semibold;
+}
+h3{
+  @apply text-xl font-semibold;
 }

@@ -1,0 +1,84 @@
+.post-comments-list{
+    ol{
+        li{
+            @apply my-8;
+            .comment-body{
+                @apply relative flex flex-row;
+                .comment-author{
+                    @apply flex flex-row mb-8;
+                    img{
+                        @apply w-[50px] h-[50px] object-cover mr-4;
+
+                    }
+                    .fn{
+                        @apply font-semibold text-lg not-italic;
+                    }
+                    .says{
+                        @apply hidden;
+                    }
+                }
+                .comment-meta{
+                    @apply absolute left-[64px] top-[25px] text-cornflowerBlue transition-colors duration-300;
+                    .comment-edit-link{
+                        @apply hidden;
+                    }
+                    &:hover{
+                        @apply text-pink;
+                    }
+                }
+                p{
+                    @apply absolute bottom-[10px] left-[64px] text-gray01 capitalize;
+                }
+                .reply{
+                    @apply absolute right-0 top-0  uppercase text-xs font-semibold text-cornflowerBlue transition-colors duration-300;
+                    &:hover{
+                        @apply text-pink;
+                    }
+                }
+            }
+            .children{
+                @apply ml-8;
+            }
+        }
+    }
+}
+.comment-respond{
+    .comment-reply-title{
+        @apply mb-8;
+    }
+    .comment-form{
+        @apply flex flex-row flex-wrap;
+        .required-field-message,.logged-in-as,.comment-notes,.comment-form-cookies-consent{
+            @apply hidden;
+        }
+        p{
+            #submit{
+                @apply border;
+            }
+        }
+    }
+    input,textarea{
+        @apply max-w-none w-full border border-solid border-gray02 rounded-none py-2 px-4 my-2 text-[16px];
+    }
+
+    .comment-form-comment{
+        @apply w-full;
+    }
+    .comment-form-author{
+        @apply pr-2;
+    }
+    .comment-form-email{
+        @apply pl-2;
+    }
+    .comment-form-author,.comment-form-email{
+        @apply w-1/2 ;
+    }
+    .comment-form-url{
+        @apply w-full;
+    }
+
+    #cancel-comment-reply-link{
+        @apply text-cornflowerBlue;
+    }
+
+}

@@ -1,0 +1,21 @@
+.categories{
+    .category{
+        .category-content{
+            @apply bg-black01;
+        }
+        &:nth-child(even){
+            .category-content{
+                @apply bg-pink;
+            }
+        }
+    }
+
+}
+
+.categories_list{
+    ul{
+       a{
+        @apply text-pink;
+       }
+    }
+}

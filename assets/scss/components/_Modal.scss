@@ -1,0 +1,6 @@
+.search-modal{
+    @apply translate-y-full transition duration-500 ease-in z-50;
+}
+.active-modal{
+    @apply -translate-y-0 ;
+}

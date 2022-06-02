@@ -1,0 +1,13 @@
+.input,#s,textarea,input{
+    @apply w-full max-w-[500px] py-3 p-8 outline-none rounded-[2rem] text-lg;
+}
+.searchform{
+    div{
+        @apply flex justify-center items-center gap-2;
+    }
+}
+.form-newletter{
+    input{
+        @apply bg-transparent rounded-md border border-solid border-gray03 text-gray02;
+    }
+}

@@ -1,0 +1,28 @@
+.widget{
+    @apply w-full p-6 border border-solid border-gray02 bg-gray03 rounded-2xl mb-8;
+
+    .searchform{
+        @apply relative;
+        input[type="text"]{
+            @apply border border-solid border-gray02 bg-gray02 ;
+            @apply #{max-w-none !important };
+        }
+        input[type="submit"]{
+            @apply absolute right-0;
+        }
+        #searchsubmit{
+            @apply border-none bg-transparent text-[15px] font-semibold;
+        }
+    }
+}
+
+.widget{
+    .archives{
+        li{
+            @apply w-full mb-4 text-gray01 cursor-pointer capitalize;
+           &:hover{
+            @apply  text-pink transition-colors duration-300;
+           }
+        }
+    }
+}
