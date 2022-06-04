@@ -15,7 +15,9 @@ get_template_part('templates/views/PageTitle',null,[
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <?php
                     $makeupArgs=array(
-                        'post_type'=>'maquillajes'
+                        'post_type'=>'maquillajeposts',
+                        'posts_per_page'=>6,
+                        'paged' => $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1
                     );
                     $makeupPosts= new WP_Query($makeupArgs);
                     if($makeupPosts->have_posts()):
@@ -23,6 +25,9 @@ get_template_part('templates/views/PageTitle',null,[
                             $makeupPosts->the_post();
                             get_template_part('templates/views/Post');
                         endwhile;
+                        get_template_part('templates/views/Pagination',null,[
+                            'posts'=>$makeupPosts
+                        ]);
                     endif;
                     wp_reset_query();
                     ?>
@@ -31,7 +36,7 @@ get_template_part('templates/views/PageTitle',null,[
             <section class="sidebar w-full lg:col-span-1">
                 <?php 
                 get_template_part('templates/views/SidebarContent',null,[
-                    'post_type'=>'maquillajes',
+                    'post_type'=>'maquillajeposts',
                     'taxonomy'=>'maquillaje_categoria'
                 ]);
                 ?>

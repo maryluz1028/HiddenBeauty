@@ -12,7 +12,7 @@
                         <img class="w-full" src="<?= $urlLogo[0] ?>" alt="<?= bloginfo('name')?>">
                     </div>
                     <div class="logo-name">
-                        <span class="uppercase leading-none text-pink font-medium">Hidden Beauty</span>
+                        <span class="uppercase leading-none text-pink font-semibold">Hidden Beauty</span>
                     </div>
             </div>
         </a>

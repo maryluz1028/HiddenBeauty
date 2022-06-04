@@ -51,7 +51,7 @@ get_template_part('templates/views/PageTitle',null,[
             </section>
             <section class="sidebar w-full lg:col-span-1">
                 <?php get_template_part('templates/views/SidebarContent',null,[
-                    'post_type'=>'tratamientos',
+                    'post_type'=>'tratamientoposts',
                     'taxonomy'=>'tratamiento_categoria'
                 ]);
                 ?>

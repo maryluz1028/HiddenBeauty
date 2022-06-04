@@ -9,7 +9,8 @@ get_header();
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-3  ">
                 <?php 
                 $categories=get_terms(array('tratamiento_categoria','maquillaje_categoria'),array(
-                    'hide_empty'=>0
+                    'hide_empty'=>0,
+                    'parent'=>0
                 ));
                 foreach ($categories as $cat) {
                     if($cat->taxonomy=='tratamiento_categoria'){
@@ -53,8 +54,8 @@ get_header();
                         <div class="title w-full md:mt-8">
                             <h2 class="border-solid border-l-4 border-pink px-6 ">¿Quienes somos?</h2>
                         </div>
-                        <div class="description py-10">
-                            <p><?= $aboutUsPost->post_content; ?></p>
+                        <div class="description py-10 mb-8">
+                            <?= $aboutUsPost->post_content; ?>
                         </div>
                     <div class="btn-read-more w-full">
                         <?php get_template_part('templates/views/Button',null,[
@@ -74,7 +75,7 @@ get_header();
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <?php 
                 $argsPosts=array(
-                    'post_type'=>array('maquillajes','tratamientos'),
+                    'post_type'=>array('maquillajeposts','tratamientoposts'),
                     'posts_per_page'=>3
                 );
                 $posts=new WP_QUERY($argsPosts);
@@ -91,4 +92,5 @@ get_header();
         </div>
     </section>
 <?php
+get_template_part('templates/views/ButtonGoTop');
 get_footer();

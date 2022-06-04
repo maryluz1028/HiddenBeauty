@@ -8,8 +8,9 @@
         }
     }
 }
-.who-we-are{
+.who-we-are,.about-footer{
     .description{
+        @apply h-[185px] overflow-hidden;
         h2{
             @apply hidden;
     }
@@ -41,5 +42,29 @@
     .evf-field-textarea{
         @apply col-span-2 ;
         @apply #{mb-2  !important}
+    }
+}
+
+.pagination{
+    @apply py-2;
+    .next,.prev{
+        @apply text-black01 transition-colors duration-300;
+    &:hover{
+        @apply text-pink;
+    }
+    }
+    .page-numbers{
+        @apply py-2 px-4 mx-2;
+    }
+    .page-numbers:not(.next,.prev){
+        @apply border border-solid border-gray02 rounded-md transition-colors duration-500;
+
+        &:hover{
+            @apply bg-pink text-white border-pink;
+        }
+    }
+    .current{
+        @apply bg-pink text-white ;
+        @apply #{border-pink !important};
     }
 }

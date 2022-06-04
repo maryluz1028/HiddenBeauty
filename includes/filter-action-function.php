@@ -56,7 +56,29 @@ function archive_title(){
     }
     return $title;
 }
-
+function pagination_bar() {
+    global $my_query;
+ 
+    $total_pages = $my_query->max_num_pages;
+ 
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+ 
+        echo paginate_links(array(
+            'base' => get_pagenum_link(1) . '%_%',
+            'format' => '/page/%#%',
+            'current' => $current_page,
+            'total' => $total_pages,
+        ));
+    }
+}
+function tags_add_custom_types( $query ) {
+    if( is_tag() && $query->is_main_query() ) {
+        $post_types = get_post_types();
+        $query->set( 'post_type', $post_types );
+    }
+}
+add_filter( 'pre_get_posts', 'tags_add_custom_types' );
 add_action('init','register_menus');
 add_action('after_setup_theme','add_supports');
 add_filter('excerpt_length','except_length_post');

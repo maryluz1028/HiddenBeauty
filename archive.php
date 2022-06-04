@@ -15,29 +15,54 @@ get_template_part('templates/views/PageTitle',null,[
                             the_post();
                             get_template_part('templates/views/Post');
                         endwhile;
+                        ?>
+                        <div class="pagination w-full text-center">
+                            <?php
+                            the_posts_pagination();
+                            ?>
+                        </div>
+                        <?php
                     endif;
                     ?>
-                </div>
+                </div> 
             </section>
             <section class="w-full lg:col-span-1">
                 <div class="grid grid-cols-1">
                     <?php
                     if(is_date()):
+                        $posttype=$_GET['post_type'];
+                        if($posttype=='maquillajeposts'):
                         get_template_part('templates/views/SidebarContent',null,[
-                            'post_type'=>'maquillajes',
+                            'post_type'=>'maquillajeposts',
                             'taxonomy'=>'maquillaje_categoria'
+                        ]);
+                        elseif($posttype=='tratamientoposts'):
+                            get_template_part('templates/views/SidebarContent',null,[
+                                'post_type'=>'tratamientoposts',
+                                'taxonomy'=>'tratamiento_categoria'
+                            ]);
+                        else:
+                            get_template_part('templates/views/SidebarContent',null,[
+                                'post_type'=>array('maquillajeposts','tratamientoposts'),
+                                'taxonomy'=>array('maquillaje_categoria','tratamiento_categoria')
+                            ]);
+                        endif;
+                    elseif(is_tag()):
+                        get_template_part('templates/views/SidebarContent',null,[
+                            'post_type'=>array('maquillajeposts','tratamientoposts'),
+                            'taxonomy'=>array('maquillaje_categoria','tratamiento_categoria')
                         ]);
                     else:
                         $term=get_queried_object();
                         $tax= $term->taxonomy;
                         if( $tax=='maquillaje_categoria'): 
                         get_template_part('templates/views/SidebarContent',null,[
-                            'post_type'=>'maquillajes',
+                            'post_type'=>'maquillajeposts',
                             'taxonomy'=>'maquillaje_categoria'
                         ]);
                         elseif ( $tax=='tratamiento_categoria'):
                             get_template_part('templates/views/SidebarContent',null,[
-                                'post_type'=>'tratamientos',
+                                'post_type'=>'tratamientoposts',
                                 'taxonomy'=>'tratamiento_categoria'
                             ]);
                         endif;

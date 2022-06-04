@@ -1,5 +1,6 @@
 import {OpenModalSearch,InputPlaceholder} from "./components/Search";
 import hamburgerMenu from "./components/Hamburger-menu";
+import PixelGoTop from "./components/Pixel-go-top";
 
 // Some convenient tools to get you started…
 import ReplaceObfuscatedEmailAddresses from "./components/ReplaceObfuscatedEmailAddresses";
@@ -9,4 +10,5 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     OpenModalSearch('#btn_modal_search','#search_modal','#btn_close_modal');
     InputPlaceholder('#s');
     hamburgerMenu('#btn_open_nav','#navbar_primary');
+    PixelGoTop('.buttom-go-top');
 });

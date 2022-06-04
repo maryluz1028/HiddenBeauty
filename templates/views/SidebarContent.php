@@ -45,12 +45,13 @@ $taxonomy=$args['taxonomy'] ?? '';
                             <?php
                             $catArgs=array(
                                 'taxonomy'=>$taxonomy,
-                                'hide_empty'=>'0'
+                                'hide_empty'=>'0',
+                                'parent'=>0
                             );
                             $categoriesList= get_terms($catArgs);
                             if($categoriesList):
                                 foreach ($categoriesList as $cat):
-                                    if(is_search()):
+                                    if(is_search() || is_tag()):
                                         if($cat->taxonomy=='maquillaje_categoria'):
                                             $text='Maquillaje de ';
                                         elseif($cat->taxonomy == 'tratamiento_categoria'):
@@ -82,63 +83,30 @@ $taxonomy=$args['taxonomy'] ?? '';
                         </ul>
     </div>
     <?php endif; ?>
-    <?php 
-    if($post_type || is_search()): ?>
     <div class="widget w-full">
-                        <h3 class="w-full mb-8">Etiquetas</h3>
-                        <div class="w-full flex flex-row flex-wrap">
-                            <?php
-                            if(is_search()):
-                                $tagsArgs=array(
-                                    'taxonomy'=>'post_tag'
-                                );
-                                $tags=get_terms($tagsArgs);
-                                if($tags):
-                                    foreach ($tags as $tagg):
-                                        ?>
-                                        <div id="btn-tag" class=" w-auto mb-4 mr-4">
-                                                <?php get_template_part('templates/views/Button',null,[
-                                                    'class'=>'button-border-thin ',
-                                                    'text'=>$tagg->name,
-                                                    'href'=> get_tag_link($tagg->term_id)
-                                                ]);
-                                                ?>
-                                            </div>
-                                        <?php
-                                    endforeach;
-                                endif;
-                            else:
-                                query_posts( array('post_type'=> $post_type) );
-                                if ( have_posts() ) : while ( have_posts() ) : the_post();
-                                $custom_post_tags = get_the_tags();
-                                if ( $custom_post_tags  ) {
-                                    foreach( $custom_post_tags as $tag ) {
-                                        $tags_arr[] = $tag -> name; 
-                                    }
-                                }
-                                endwhile; endif;
-                                if( $tags_arr ) {
-                                    $uniq_tags_arr = array_unique( $tags_arr );
-                                    foreach( $uniq_tags_arr as $tag ) {
-                                        $tag_link=get_term_by('name',$tag,'post_tag')
-                                        ?>
-                                            <div id="btn-tag" class=" w-auto mb-4 mr-4">
-                                                <?php get_template_part('templates/views/Button',null,[
-                                                    'class'=>'button-border-thin',
-                                                    'text'=>$tag,
-                                                    'href'=> get_tag_link($tag_link->term_id)
-                                                ]);
-                                                ?>
-                                            </div>
-                                        <?php
-                                    }
-                                }
-                            endif;
-                            ?>
-                        </div>
+        <h3 class="w-full mb-8">Etiquetas generales</h3>
+        <div class="w-full flex flex-row flex-wrap">
+        <span class="p-2 text-pink"><i class="fas fa-tags"></i></span>
+            <?php
+                $tagsArgs=array(
+                    'taxonomy'=>'post_tag'
+                );
+                $tags=get_terms($tagsArgs);
+                if($tags):
+                    foreach ($tags as $tag):
+                        ?>
+                            <div class="tag p-2 w-auto">
+                                <a class="w-full text-gray01 hover:text-pink transition-colors duration-300" href="<?=get_tag_link($tag->term_id); ?>">
+                                <?=$tag->name .','; ?>
+                                </a>
+                            </div>
+                        <?php
+                    endforeach;
+                endif;
+            ?>
+        </div>
     </div>
-    <?php endif;?>
-    <?php if($post_type):?>
+    <?php if(!(is_search() || is_tag()) && $post_type):?>
     <div class="widget w-full">
         <h3 class="w-full mb-8">Archivos</h3>
         <ul class="flex flex-col archives">
@@ -153,4 +121,5 @@ $taxonomy=$args['taxonomy'] ?? '';
     </div>
     <?php endif; ?>
 </div>
+
 

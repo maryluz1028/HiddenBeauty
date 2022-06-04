@@ -8,14 +8,16 @@
                 <div class="title w-full mb-8">
                     <h2 class="w-full border-l-4 border-solid border-pink px-8 text-white">¿Quienes somos?</h2>
                 </div>
-                <div class="description w-full mb-8">
-                    <p class="text-gray01">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ratione suscipit sint sequi, fugit ipsa a cum quae nobis? Culpa voluptates consequuntur a sapiente commodi</p>
+                <div class="description w-full mb-8 text-gray01">
+                    <?php $aboutUsPostFooter=get_post(9); ?>
+                    <?= $aboutUsPostFooter->post_content; ?>
                 </div>
-                <div class="w-full">
+                <div class="btn-read-more w-full">
                     <?php get_template_part('templates/views/Button',null,[
                         'class'=>'button-w-full hover-bg-transparent button-icon-m',
                         'text'=>'Leer más',
-                        'icon'=>'fas fa-angle-double-right'
+                        'icon'=>'fas fa-angle-double-right',
+                        'href'=>get_the_permalink($aboutUsPostFooter->ID)
                     ]); ?>
                 </div>
             </div>
@@ -39,11 +41,11 @@
                         </li>
                         <li class="w-full mb-6 flex flex-row">
                             <div class="icon mr-4 text-pink text-xl"><i class="fas fa-envelope"></i></div>
-                            <span class="">naturalbeauty@email.com</span>
+                            <span class="">hiddenbeauty@email.com</span>
                         </li>
                         <li class="w-full mb-6 flex flex-row">
                             <div class="icon mr-4 text-pink text-xl"><i class="fas fa-globe-americas"></i></div>
-                            <span class="">www.naturalbeauty.com</span>
+                            <span class="">www.hiddenbeauty.com</span>
                         </li>
                     </ul>
                 </div>
@@ -65,6 +67,9 @@
                     </form>
             </div>
         </div>
+    </div>
+    <div class="w-full flex flex-row justify-center bg-black p-4 text-white">
+        <span>Copyright ©2022 — Mary P.</span>
     </div>
 </footer>
 <?php get_template_part( 'templates/partials/document-close' );

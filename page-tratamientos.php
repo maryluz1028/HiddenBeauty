@@ -15,7 +15,9 @@ get_template_part('templates/views/PageTitle',null,[
                 <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
                     <?php
                     $treatmentArgs=array(
-                        'post_type'=>'tratamientos'
+                        'post_type'=>'tratamientoposts',
+                        'posts_per_page'=> 6,
+                        'paged'=>$paged=(get_query_var('paged')) ? get_query_var('paged') : 1
                     );
                     $treatmentPosts= new WP_QUERY($treatmentArgs);
                     if($treatmentPosts->have_posts()):
@@ -23,13 +25,16 @@ get_template_part('templates/views/PageTitle',null,[
                             $treatmentPosts->the_post();
                             get_template_part('templates/views/Post');
                         endwhile;
+                        get_template_part('templates/views/Pagination',null,[
+                            'posts'=>$treatmentPosts
+                        ]);
                     endif;
                     ?>
                 </div>
             </section>
             <section class="sidebar w-full lg:col-span-1">
                 <?php get_template_part('templates/views/SidebarContent',null,[
-                    'post_type'=>'tratamientos',
+                    'post_type'=>'tratamientoposts',
                     'taxonomy'=>'tratamiento_categoria'
                 ]); ?>
             </section>

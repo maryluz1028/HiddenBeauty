@@ -23,7 +23,7 @@ get_template_part('templates/views/PageTitle',null,[
             <section class="w-full lg:col-span-1">
                 <?php
                 get_template_part('templates/views/SidebarContent',null,[
-                    'post_type'=>array('maquillajes','tratamientos'),
+                    'post_type'=>array('maquillajeposts','tratamientoposts'),
                     'taxonomy'=>array('maquillaje_categoria','tratamiento_categoria')
                 ]);
                 ?>
@@ -31,7 +31,6 @@ get_template_part('templates/views/PageTitle',null,[
         </div>
     </div>
 </div>
-
 <?php
 get_footer();
 ?>

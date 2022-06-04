@@ -10,6 +10,9 @@
                     @apply bg-pink lg:bg-transparent lg:text-pink;
                 }
             }
+            a[aria-current]{
+                @apply text-pink;
+            }
             .sub-menu{
                 @apply hidden  bg-gray01 lg:inline lg:bg-white lg:absolute lg:z-30 lg:top-full lg:left-0 lg:-right-1/2 transition-opacity duration-1000 lg:shadow-md lg:rounded-2xl lg:opacity-0 lg:invisible;
             }
@@ -22,3 +25,4 @@
 .active_menu{
     @apply visible translate-x-0 opacity-100 ;
 }
+
