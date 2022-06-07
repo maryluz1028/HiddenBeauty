@@ -72,4 +72,6 @@
         <span>Copyright ©2022 — Mary P.</span>
     </div>
 </footer>
-<?php get_template_part( 'templates/partials/document-close' );
+<?php 
+get_template_part('templates/views/ButtonGoTop');
+get_template_part( 'templates/partials/document-close' );

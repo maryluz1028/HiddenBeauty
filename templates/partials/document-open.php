@@ -14,7 +14,12 @@
 			?>
 			<style>
 				header{
-					top:32px !important;
+					top:46px !important;
+				}
+				@media (min-width:783px){
+					header{
+						top:32px !important;
+					}
 				}
 			</style>
 			<?php

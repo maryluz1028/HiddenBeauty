@@ -163,7 +163,12 @@
     button{
         @apply outline-none #{!important};
     }
+    .go-top-animation{
+    }
 }
 .go-top.active{
     @apply -translate-y-2 ;
+    .animation-div{
+        @apply animate-ping ;
+    }
 }

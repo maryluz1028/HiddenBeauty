@@ -92,5 +92,4 @@ get_header();
         </div>
     </section>
 <?php
-get_template_part('templates/views/ButtonGoTop');
 get_footer();

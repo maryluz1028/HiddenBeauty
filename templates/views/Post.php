@@ -19,7 +19,7 @@
             <div class="excerpt w-full py-1 text-gray01 text-[15px]">
                 <?= the_excerpt(); ?>
             </div>
-            <div class="btn-read-more w-full py-2 cursor-pointer">
+            <div class="btn-read-more w-full py-2">
                 <?php get_template_part('templates/views/Button',null,[
                     'class'=>'button-bg-none button-text-15 button-border-none button-color-pink button-p-0 button-hover-pink button-tracking button-text-bold button-icon-m',
                     'text'=>'Ver Mas',

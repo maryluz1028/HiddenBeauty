@@ -1,7 +1,6 @@
 
 export function OpenModalSearch(btnOpenSearch,modal,btnCloseModal){
     document.addEventListener('click',(e)=>{{
-        console.log(e.target);
         if(e.target.matches(btnOpenSearch) || e.target.matches(`${btnOpenSearch} *`)){
             document.querySelector(modal).classList.add('active-modal');
         }

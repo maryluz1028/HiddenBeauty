@@ -1,28 +1,61 @@
-.navbar-primary{
-    @apply absolute z-40 top-0 left-0 h-[100vh]  w-[230px] sm:w-[300px] bg-black01 invisible -translate-x-full opacity-0  transition duration-300 ease-in-out lg:static lg:translate-x-0 lg:opacity-100 lg:visible lg:h-auto lg:w-auto lg:bg-transparent;
+.menu-nav-main{
+    @apply hidden lg:block w-auto;
     .menu{
-        @apply flex flex-col lg:flex-row lg:items-center;
+        @apply flex flex-row items-center justify-center;
         .menu-item{
-            @apply w-full lg:relative;
+            @apply relative;
             a{
-                @apply inline-block w-full py-4 px-6 text-white transition-colors duration-500 ease-in-out cursor-pointer lg:text-sm lg:text-black01;
+                @apply inline-block w-auto py-4 px-6 transition-colors duration-500 ease-in-out cursor-pointer text-sm text-black01;
                 &:hover{
-                    @apply bg-pink lg:bg-transparent lg:text-pink;
+                    @apply text-pink;
                 }
             }
             a[aria-current]{
                 @apply text-pink;
             }
             .sub-menu{
-                @apply hidden  bg-gray01 lg:inline lg:bg-white lg:absolute lg:z-30 lg:top-full lg:left-0 lg:-right-1/2 transition-opacity duration-1000 lg:shadow-md lg:rounded-2xl lg:opacity-0 lg:invisible;
+                @apply inline bg-white absolute z-30 top-full left-0 -right-1/2 transition-opacity duration-1000 shadow-md rounded-2xl opacity-0 invisible;
             }
             &:hover .sub-menu{
-                @apply flex flex-col lg:visible lg:opacity-100;
+                @apply visible opacity-100;
             }
         }
     }
 }
+
+.menu-nav-mobile{
+    @apply absolute z-40 top-0 left-0 h-[100vh]  w-[230px] sm:w-[300px] bg-black01  -translate-x-full   transition-transform duration-300 ease-in-out;
+    .menu{
+        @apply flex flex-col;
+        .menu-item{
+            @apply w-full;
+            a{
+                @apply inline-block w-full py-4 px-6 text-white transition-colors duration-500 ease-in-out cursor-pointer;
+                &:hover{
+                    @apply bg-pink;
+                }
+            }
+            a[aria-current]{
+                @apply text-pink;
+                &:hover{
+                    @apply text-white;
+                }
+            }
+            .sub-menu{
+                @apply hidden bg-gray01 flex-col ;
+            }
+            a.activeSubMenu ~ .sub-menu{
+                @apply flex;
+            }
+        }
+    }
+
+}
 .active_menu{
-    @apply visible translate-x-0 opacity-100 ;
+    @apply  translate-x-0 lg:-translate-x-full  ;
+}
+/*****************/
+#wpadminbar{
+    @apply fixed;
 }
 
