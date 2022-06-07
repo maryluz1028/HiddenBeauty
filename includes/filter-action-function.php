@@ -23,6 +23,11 @@ function main_image_url($id,$size){
     $img_src=wp_get_attachment_image_src($img_id,$size);
     return $img_src[0];
 }
+function get_logo(){
+    $custom_logo_id=get_theme_mod('custom_logo');
+    $urlLogo=wp_get_attachment_image_src($custom_logo_id);
+    return $urlLogo[0];
+}
 function theme_prefix_rewrite_flush() {
     flush_rewrite_rules();
 }

@@ -15,6 +15,8 @@ get_template_part('templates/views/PageTitle',null,[
                             the_post();
                             get_template_part('templates/views/Post');
                         endwhile;
+                    else:
+                        echo 'No se ha encontrado ningun resultado para la búsqueda';
                     endif;
                     rewind_posts();
                     ?>

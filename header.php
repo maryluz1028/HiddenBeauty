@@ -11,7 +11,7 @@ get_template_part( 'templates/partials/document-open' );
             <a class="" href="<?= bloginfo('home') ?>">
                 <div class="flex flex-row items-center">
                         <div class="logo-img w-10 h-10 min-w-[30px] min-h-[30px] mr-2">
-                            <img class="w-full" src="<?= $urlLogo[0] ?>" alt="<?= bloginfo('name')?>">
+                            <img class="w-full" src="<?= get_logo();?>" alt="<?= bloginfo('name')?>">
                         </div>
                         <div class="logo-name">
                             <span class="uppercase leading-none text-pink font-semibold">Hidden Beauty</span>

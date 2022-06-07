@@ -10,11 +10,11 @@ $navRoutes=$args['navRoutes'] ?? '';
             <h1 class="text-white mb-8 md:mb-0 uppercase">
                 <?= $title ?>
             </h1>
-            <div class="navigation-routes">
+            <!--<div class="navigation-routes">
                 <div class="w-full rounded-[2rem] p-4 bg-color-rgba-white ">
                     <span class="text-white"><?= $navRoutes ?></span>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

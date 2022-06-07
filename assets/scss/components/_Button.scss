@@ -54,7 +54,7 @@
     @apply font-semibold;
 }
 
-.posts-by-category,.posts-by-search,.who-we-are,footer {
+.posts-by-category,.posts-by-search,.who-we-are,footer  {
     .post,.who-we-are-content,.about-footer {
         .btn-read-more,#btn-tag{
             .button{
@@ -69,7 +69,7 @@
         }
     }
 }
-#btn-tag{
+#btn-tag,.btn-back{
     .button{
         @apply #{p-0 border !important} ;
         a{
